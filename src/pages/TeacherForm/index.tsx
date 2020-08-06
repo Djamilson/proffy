@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import warningIcon from '../../assets/images/icons/warning.svg';
 import Input from '../../components/Input';
@@ -9,6 +9,25 @@ import Textarea from '../../components/TextArea';
 import './styles.css';
 
 const TeacherForm: React.FC = () => {
+  const [scheduleItems, setScheduleItems] = useState([
+    {
+      week_day: 0,
+      from: '',
+      to: '',
+    },
+  ]);
+
+  function addNewScheduleItem() {
+    setScheduleItems([
+      ...scheduleItems,
+      {
+        week_day: 0,
+        from: '',
+        to: '',
+      },
+    ]);
+  }
+
   return (
     <div id="page-teacher-form" className="container">
       <PageHeader
@@ -51,24 +70,30 @@ const TeacherForm: React.FC = () => {
         <fieldset>
           <legend>
             Horário disponíveis
-            <button type="button">+ Novo horário</button>
+            <button type="button" onClick={addNewScheduleItem}>
+              + Novo horário
+            </button>
           </legend>
-          <div className="schedule-item">
-            <Select
-              name="subject"
-              label="Matéria"
-              options={[
-                { value: 'Artes', label: 'Artes' },
-                { value: 'Artes', label: 'Artes' },
-                { value: 'Artes', label: 'Artes' },
-                { value: 'Artes', label: 'Artes' },
-                { value: 'Artes', label: 'Artes' },
-                { value: 'Artes', label: 'Artes' },
-              ]}
-            />
-          </div>
-          <Input name="from" label="Das" type="time" />
-          <Input name="to" label="Até" type="time" />
+          {scheduleItems.map((scheduleItem) => {
+            return (
+              <div key={scheduleItem.week_day} className="schedule-item">
+                <Select
+                  name="subject"
+                  label="Matéria"
+                  options={[
+                    { value: 'Artes', label: 'Artes' },
+                    { value: 'Artes', label: 'Artes' },
+                    { value: 'Artes', label: 'Artes' },
+                    { value: 'Artes', label: 'Artes' },
+                    { value: 'Artes', label: 'Artes' },
+                    { value: 'Artes', label: 'Artes' },
+                  ]}
+                />
+                <Input name="from" label="Das" type="time" />
+                <Input name="to" label="Até" type="time" />
+              </div>
+            );
+          })}
         </fieldset>
 
         <footer>
