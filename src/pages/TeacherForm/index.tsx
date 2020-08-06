@@ -1,9 +1,12 @@
 import React from 'react';
 
-import PageHeader from '../../components/PageHeader';
-import './styles.css';
-import Input from '../../components/Input';
 import warningIcon from '../../assets/images/icons/warning.svg';
+import Input from '../../components/Input';
+import PageHeader from '../../components/PageHeader';
+import Select from '../../components/Select';
+import Textarea from '../../components/TextArea';
+
+import './styles.css';
 
 const TeacherForm: React.FC = () => {
   return (
@@ -22,13 +25,50 @@ const TeacherForm: React.FC = () => {
           <Input name="avatar" label="Avatar" />
 
           <Input name="whatsapp" label="whatsApp" />
+
+          <Textarea name="bio" label="Biografia" />
         </fieldset>
 
         <fieldset>
           <legend>Sobre a aula</legend>
 
-          <Input name="subject" label="Matéria" />
+          <Select
+            name="subject"
+            label="Matéria"
+            options={[
+              { value: 'Artes', label: 'Artes' },
+              { value: 'Artes', label: 'Artes' },
+              { value: 'Artes', label: 'Artes' },
+              { value: 'Artes', label: 'Artes' },
+              { value: 'Artes', label: 'Artes' },
+              { value: 'Artes', label: 'Artes' },
+            ]}
+          />
+
           <Input name="cost" label="Custo da sua hora por aula" />
+        </fieldset>
+
+        <fieldset>
+          <legend>
+            Horário disponíveis
+            <button type="button">+ Novo horário</button>
+          </legend>
+          <div className="schedule-item">
+            <Select
+              name="subject"
+              label="Matéria"
+              options={[
+                { value: 'Artes', label: 'Artes' },
+                { value: 'Artes', label: 'Artes' },
+                { value: 'Artes', label: 'Artes' },
+                { value: 'Artes', label: 'Artes' },
+                { value: 'Artes', label: 'Artes' },
+                { value: 'Artes', label: 'Artes' },
+              ]}
+            />
+          </div>
+          <Input name="from" label="Das" type="time" />
+          <Input name="to" label="Até" type="time" />
         </fieldset>
 
         <footer>
