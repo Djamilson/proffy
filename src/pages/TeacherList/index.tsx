@@ -1,10 +1,11 @@
 import React from 'react';
 
+import Input from '../../components/Input';
 import PageHeader from '../../components/PageHeader';
-import './styles.css';
 import Select from '../../components/Select';
 import TeacherItem from '../../components/TeacherItem';
-import Input from '../../components/Input';
+
+import './styles.css';
 
 const TeacherList: React.FC = () => {
   return (
