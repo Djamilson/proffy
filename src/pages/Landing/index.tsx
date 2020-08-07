@@ -1,14 +1,19 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 
+import api from '../../_services/api';
 import giveClassesIcon from '../../assets/images/icons/give-classes.svg';
 import purpleHeartIcon from '../../assets/images/icons/purple-heart.svg';
 import studyIcon from '../../assets/images/icons/study.svg';
 import landingImg from '../../assets/images/landing.svg';
 import logoImg from '../../assets/images/logo.svg';
-
-import './styles.css';
-import api from '../../_services/api';
+import {
+  Container,
+  Content,
+  ContainerLogo,
+  ButtonsContainer,
+  LinkStudy,
+  LinkGiveClasses,
+} from './styles';
 
 const Landing: React.FC = () => {
   const [totalConnections, setTotalConnections] = useState(0);
@@ -22,12 +27,12 @@ const Landing: React.FC = () => {
   }, []);
 
   return (
-    <div id="page-landing">
-      <div id="page-landing-content" className="container">
-        <div className="logo-container">
+    <Container>
+      <Content>
+        <ContainerLogo>
           <img src={logoImg} alt="Proffy" />
           <h2>Sua plataforma de estudos online.</h2>
-        </div>
+        </ContainerLogo>
 
         <img
           src={landingImg}
@@ -35,24 +40,24 @@ const Landing: React.FC = () => {
           className="hero-image"
         />
 
-        <div className="buttons-container">
-          <Link to="/study" className="study">
+        <ButtonsContainer>
+          <LinkStudy to="/study">
             <img src={studyIcon} alt="Estudar" />
             Estudar
-          </Link>
+          </LinkStudy>
 
-          <Link to="/give-classes" className="give-classes">
-            <img src={giveClassesIcon} alt="Dar aulas" />
+          <LinkGiveClasses to="/give-classes">
+            <img src={giveClassesIcon} alt="Dar aula" />
             Dar aulas
-          </Link>
-        </div>
+          </LinkGiveClasses>
+        </ButtonsContainer>
 
-        <span className="total-connections">
+        <span>
           Total de {totalConnections} conexões já realizadas
           <img src={purpleHeartIcon} alt="Coração roxo" />
         </span>
-      </div>
-    </div>
+      </Content>
+    </Container>
   );
 };
 

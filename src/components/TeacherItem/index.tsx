@@ -1,11 +1,11 @@
 import React from 'react';
 
-import './styles.css';
 import whatsappIcon from '../../assets/images/icons/whatsapp.svg';
+import { Container } from './styles';
 
 const TeacherItem: React.FC = () => {
   return (
-    <article className="teacher-item">
+    <Container>
       <header>
         <img
           src="https://avatars1.githubusercontent.com/u/10201661?s=400&u=70408723266c44771a9c4b10948b3b00614dda2a&v=4"
@@ -37,7 +37,7 @@ const TeacherItem: React.FC = () => {
           Entrar em contato
         </button>
       </footer>
-    </article>
+    </Container>
   );
 };
 

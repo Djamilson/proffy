@@ -1,5 +1,6 @@
 import React, { InputHTMLAttributes } from 'react';
-import './styles.css';
+
+import { TextareaBlock } from './styles';
 
 interface TextAreaProps extends InputHTMLAttributes<HTMLTextAreaElement> {
   name: string;
@@ -8,10 +9,10 @@ interface TextAreaProps extends InputHTMLAttributes<HTMLTextAreaElement> {
 
 const Textarea: React.FC<TextAreaProps> = ({ name, label, ...rest }) => {
   return (
-    <div className="textarea-block">
+    <TextareaBlock>
       <label htmlFor={name}>{label}</label>
       <textarea id={name} {...rest} />
-    </div>
+    </TextareaBlock>
   );
 };
 
